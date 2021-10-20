@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import './main-view.scss';
 
 import {LoginView} from '../login-view/login-view';
 import {RegistrationView} from '../registration-view/registration-view';
