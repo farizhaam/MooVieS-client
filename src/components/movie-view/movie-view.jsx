@@ -26,17 +26,34 @@ export class MovieView extends React.Component {
 
         return (
             <div className="movie-view">
+
+                {/* showing movie posters */}
                 <div className="movie-poster">
                     <img src={movie.ImagePath} />
                 </div>
+
+                {/* showing movie titles */}
                 <div className="movie-title">
                     <span className="label">Title: </span>
                     <span className="value">{movie.Title}</span>
                 </div>
+
+                {/* showing movie descriptions */}
                 <div className="movie-description">
                     <span className="label">Description: </span>
                     <span className="value">{movie.Description}</span>
                 </div>
+
+                {/* link to movie's director info */}
+                <Link to={`/directors/${movie.Director.Name}`}>
+                    <Button variant="link">Director</Button>
+                </Link>
+
+                {/* link to movie's genre info */}
+                <Link to={`/genres/${movie.Genre.Name}`}>
+                    <Button variant="link">Genre</Button>
+                </Link>
+
                 <button onClick={() => { onBackClick(null); }} variant="secondary">Back</button>
             </div>
                 
