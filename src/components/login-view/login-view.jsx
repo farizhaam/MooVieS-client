@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 import './login-view.scss';
 
 export function LoginView(props){
@@ -9,9 +10,16 @@ export function LoginView(props){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password);
-        //send a request to the server for authentication, then call this props
-        props.onLoggedIn(username);
+        axios.post('https://moovies-api.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        })
+        .then(response => {
+            const data = response.data;
+        })
+        .catch(e => {
+            console.log('no such user')
+        });
     };
 
     return(
@@ -22,12 +30,12 @@ export function LoginView(props){
             <Form>
                 <Form.Group controlId="formUsername">
                     <Form.Label>Username: </Form.Label>
-                    <Form.Control type="text" onChange={e => setUsername(e.target.value)} /><br/>
+                    <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} /><br/>
                 </Form.Group>
 
                 <Form.Group controlId="formPassword">
                     <Form.Label>Password: </Form.Label>
-                    <Form.Control type="password" onChange={e => setPassword(e.target.value)} /><br/>
+                    <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} /><br/>
                 </Form.Group>
                 <button variant="custom" type="submit" onClick={handleSubmit}>Submit</button>
             </Form>

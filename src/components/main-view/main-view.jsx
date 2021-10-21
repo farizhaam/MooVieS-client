@@ -41,11 +41,17 @@ export class MainView extends React.Component {
     }
 
     //updating 'user' property when a user is logged in
-    onLoggedIn(user){
+    onLoggedIn(authData){
+        console.log(authData);
         this.setState({
-            user
+            user: authData.user.Username
         });
+
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user);
+        this.getMovies(authData.token);
     }
+
 
     render(){
         const {movies, selectedMovie, user} = this.state;
