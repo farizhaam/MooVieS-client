@@ -22,15 +22,13 @@ export class MainView extends React.Component {
     }
     
     componentDidMount(){
-        axios.get('https://moovies-api.herokuapp.com/movies')
-        .then(response => {
+        let accessToken = localStorage.getItem('token');
+        if(accessToken !== null){
             this.setState({
-            movies: response.data
+                user: localStorage.getItem('user')
             });
-        })
-        .catch(error => {
-            console.log(error);
-        });
+        }
+        this.getMovies(accessToken);
     }
     
     //updating state of 'selectedMovie', triggered when clicked
@@ -51,6 +49,8 @@ export class MainView extends React.Component {
         localStorage.setItem('user', authData.user);
         this.getMovies(authData.token);
     }
+
+
 
     //get Movies when token is received
     getMovies(token){
