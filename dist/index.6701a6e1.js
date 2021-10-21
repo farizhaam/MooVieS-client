@@ -22926,13 +22926,11 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     componentDidMount() {
-        _axiosDefault.default.get('https://moovies-api.herokuapp.com/movies').then((response)=>{
-            this.setState({
-                movies: response.data
-            });
-        }).catch((error)=>{
-            console.log(error);
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) this.setState({
+            user: localStorage.getItem('user')
         });
+        this.getMovies(accessToken);
     }
     //updating state of 'selectedMovie', triggered when clicked
     setSelectedMovie(newSelectedMovie) {
