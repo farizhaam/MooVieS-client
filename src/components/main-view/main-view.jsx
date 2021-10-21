@@ -83,6 +83,9 @@ export class MainView extends React.Component {
         //before the movies loaded
         if (movies.length === 0) return <div className="main-view" />;
 
+        //logout button
+        <button onClick={() => {this.onLoggedOut()}}>Logout</button>
+
         return (
             <Row className="main-view justify-content-md-center">
                 {selectedMovie
@@ -99,6 +102,8 @@ export class MainView extends React.Component {
                 }
             </Row>
         );
+        
+
     }
 
 }
