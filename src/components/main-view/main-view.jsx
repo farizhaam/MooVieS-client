@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -83,8 +83,7 @@ export class MainView extends React.Component {
 
 
 
-        //before the movies loaded
-        if (movies.length === 0) return <div className="main-view" />;
+
 
         //logout button
         <button onClick={() => {this.onLoggedOut()}}>Logout</button>
@@ -102,7 +101,10 @@ export class MainView extends React.Component {
                             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
                         </Col>
 
-                        //rendering movieCard is login is successful
+                        //before the movies loaded
+                        if (movies.length === 0) return <div className="main-view" />;  
+                        
+                        //rendering movieCard if login is successful
                         return movies.map(m => (
                             <Col md={3} key={m._id}>
                                 <MovieCard movie={m} />
