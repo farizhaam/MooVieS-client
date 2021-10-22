@@ -81,10 +81,6 @@ export class MainView extends React.Component {
     render(){
         const {movies, user} = this.state;
 
-
-
-
-
         //logout button
         <button onClick={() => {this.onLoggedOut()}}>Logout</button>
 
@@ -114,6 +110,7 @@ export class MainView extends React.Component {
                     
                     {/* route to RegistrationView */}
                     <Route exact path="/register" render={() =>{
+                        if (user) return <Redirect to="/" />
                         return <Col>
                             <RegistrationView />
                         </Col>
@@ -141,6 +138,15 @@ export class MainView extends React.Component {
                             <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
                         </Col>
                     }} />
+
+                    {/* route for ProfileView) */}
+                    <Route path="/users/:username" render={(history) => {
+                        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                        if (movies.length === 0) return <div className="main-view" />
+                        return <Col>
+                            <ProfileView history={history} movies={movies} />
+                        </Col>
+                    }}  />
                 </Row>                
             </Router>
 
