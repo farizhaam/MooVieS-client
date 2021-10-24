@@ -25,7 +25,6 @@ export class MainView extends React.Component {
         };
     }
     
-    //get Movies when token is received
     getMovies(token){
         axios.get('https://moovies-api.herokuapp.com/movies', {
             headers: {Authorization: `Bearer ${token}`}
@@ -35,7 +34,7 @@ export class MainView extends React.Component {
                 movies: response.data
             });
         })
-        .catch(error => {
+        .catch(function(error) {
             console.log(error);
         });
     }
@@ -46,8 +45,8 @@ export class MainView extends React.Component {
             this.setState({
                 user: localStorage.getItem('user')
             });
+            this.getMovies(accessToken);
         }
-        this.getMovies(accessToken);
     }
     
     //updating state of 'selectedMovie', triggered when clicked
@@ -65,7 +64,7 @@ export class MainView extends React.Component {
         });
 
         localStorage.setItem('token', authData.token);
-        localStorage.setItem('user', authData.user);
+        localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
 
@@ -77,6 +76,7 @@ export class MainView extends React.Component {
             user: null
         });
     }
+
 
     render(){
         const {movies, user} = this.state;
