@@ -21,16 +21,28 @@ export class MainView extends React.Component {
         };
     }
     
-    componentDidMount(){
-        axios.get('https://moovies-api.herokuapp.com/movies')
+    getMovies(token){
+        axios.get('https://moovies-api.herokuapp.com/movies', {
+            headers: {Authorization: `Bearer ${token}`}
+        })
         .then(response => {
             this.setState({
-            movies: response.data
+                movies: response.data
             });
         })
-        .catch(error => {
+        .catch(function(error) {
             console.log(error);
         });
+    }
+
+    componentDidMount(){
+        let accessToken = localStorage.getItem('token');
+        if(accessToken !== null){
+            this.setState({
+                user: localStorage.getItem('user')
+            });
+            this.getMovies(accessToken);
+        }
     }
     
     //updating state of 'selectedMovie', triggered when clicked
@@ -48,24 +60,12 @@ export class MainView extends React.Component {
         });
 
         localStorage.setItem('token', authData.token);
-        localStorage.setItem('user', authData.user);
+        localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
 
-    getMovies(){
-        axios.get('https://moovies-api.herokuapp.com/movies', {
-            headers: {Authorization: `Bearer ${token}`}
-        })
-        .then(response => {
-            this.setState({
-                movies: response.data
-            });
-        })
-        .catch(function(error) {
-            console.log(error);
-        })
-    }
-    
+
+
     render(){
         const {movies, selectedMovie, user} = this.state;
 
