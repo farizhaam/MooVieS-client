@@ -44,6 +44,10 @@ button {
   padding: 5px;
   border-radius: 3px;
 }
+
+.logout {
+  visibility: hidden;
+}
 .body {
   font-family: "Source Sans Pro";
 }
