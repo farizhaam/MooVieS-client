@@ -1,3 +1,15 @@
 .body{
     font-family: 'Source Sans Pro';
 }
+
+.back-button {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    background-color: #594a42;
+    color: #fff9eb;
+    padding:10px 30px;
+    border-radius: 3px;
+}
