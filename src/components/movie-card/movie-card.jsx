@@ -7,9 +7,10 @@ import {Link} from 'react-router-dom';
 
 export class MovieCard extends React.Component{
     render(){
-        const {movie, onMovieClick} = this.props;
+        const {movie} = this.props;
 
         return (
+
             <Card>
                 <Card.Img variant="top" src={movie.ImagePath} />
                 <Card.Body>
