@@ -38,20 +38,37 @@ form {
   display: inline-block;
 }
 
-button {
+.logout-button {
+  display: inline-block;
   background-color: #594a42;
   color: #fff9eb;
-  padding: 5px;
+  margin: 20px auto;
+  padding: 10px 30px;
   border-radius: 3px;
-}
-
-.logout {
-  visibility: hidden;
 }
 .body {
   font-family: "Source Sans Pro";
 }
+
+.back-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  background-color: #594a42;
+  color: #fff9eb;
+  padding: 10px 30px;
+  border-radius: 3px;
+}
 .main-view {
   background-color: #fff9eb;
+}
+body {
+  color: #594a42;
+  font-family: "Source Sans Pro";
+}
+body {
+  color: #594a42;
+  font-family: "Source Sans Pro";
 }
 /*# sourceMappingURL=index.caa67093.css.map */
