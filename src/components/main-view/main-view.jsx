@@ -86,9 +86,9 @@ class MainView extends React.Component {
 
 
     render(){
-        const {movies, user} = this.state;
-
-
+        //movies is extracted from this.props rather than from this.state
+        let {movies} = this.props;
+        let {user} = this.state;
 
         return (
             <div>
