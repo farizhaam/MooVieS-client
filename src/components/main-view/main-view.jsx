@@ -29,7 +29,6 @@ class MainView extends React.Component {
         super();
         //initial state is set to null
         this.state={
-            movies: [],
             // selectedMovie: null,
             user:null
         };
