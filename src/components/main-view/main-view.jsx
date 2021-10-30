@@ -1,8 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
+import { connect } from 'react-redux';
+
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import {Link} from 'react-router-dom';
+
+import { setMovies } from '../../actions/actions';
+
+import MoviesList from '../movies-list/movies-list';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -14,7 +20,7 @@ import {GenreView} from '../genre-view/genre-view';
 import {DirectorView} from '../director-view/director-view';
 import {LoginView} from '../login-view/login-view';
 import {RegistrationView} from '../registration-view/registration-view';
-import {MovieCard} from '../movie-card/movie-card';
+// import {MovieCard} from '../movie-card/movie-card';
 import {MovieView} from '../movie-view/movie-view';
 
 export class MainView extends React.Component {
