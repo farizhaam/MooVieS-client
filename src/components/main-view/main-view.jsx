@@ -112,12 +112,8 @@ class MainView extends React.Component {
                             //before the movies loaded
                             if (movies.length === 0) return <div className="main-view" />;  
                             
-                            //rendering movieCard if login is successful
-                            return movies.map(m => (
-                                <Col md={3} key={m._id}>
-                                    <MovieCard movie={m} />
-                                </Col>
-                            ))
+                            //rendering moviesList
+                            return <MoviesList movies={movies} />;
                         }} />
                         
                         {/* route to RegistrationView */}
