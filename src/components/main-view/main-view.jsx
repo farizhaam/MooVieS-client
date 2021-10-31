@@ -99,7 +99,7 @@ class MainView extends React.Component {
                         <img src={Image} className="moovies-logo" />                       
                     </Col>
                     <Col md={{ span: 2, offset: 7}}>
-                        <button className="logout-button" onClick={() => {onLoggedOut(null);}}>Logout</button>                      
+                        <button className="button" onClick={() => {onLoggedOut(null);}}>Logout</button>                      
                     </Col>
                 </Row>
 
