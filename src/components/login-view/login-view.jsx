@@ -42,5 +42,5 @@ export function LoginView(props){
             </Form>
         </div>
 
-    )
+    );
 }
