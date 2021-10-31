@@ -14,6 +14,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
+import Image from '../../../img/moovies_logo.png';
 import './main-view.scss';
 
 import {GenreView} from '../genre-view/genre-view';
@@ -92,15 +93,20 @@ class MainView extends React.Component {
 
         return (
             <div>
-                {/* logout button */}
-
-                <button className="logout-button" onClick={() => {onLoggedOut(null);}}>Logout</button>
-
+                
+                <Row>
+                    <Col md={3}>
+                        <img src={Image} className="moovies-logo" />                       
+                    </Col>
+                    <Col md={{ span: 2, offset: 7}}>
+                        <button className="logout-button" onClick={() => {onLoggedOut(null);}}>Logout</button>                      
+                    </Col>
+                </Row>
 
                 {/* adding MovieCard and MovieView inside Router */}
                 <Router> 
                     <Row className="main-view justify-content-md-center">
-                        
+
                         {/* route to MovieCard */}
                         <Route exact path="/" render={() =>{
                             
@@ -157,6 +163,8 @@ class MainView extends React.Component {
                         }}  />
                     </Row>                
                 </Router>
+
+                <a className="link-source" href="https://www.freevector.com/cute-cow-and-calf-collection-vector-27274">Link to Calf image for logo</a>
             </div>
             
 
