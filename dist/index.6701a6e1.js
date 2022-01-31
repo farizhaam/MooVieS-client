@@ -23037,7 +23037,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                                className: "logout-button",
+                                className: "button",
                                 onClick: ()=>{
                                     onLoggedOut(null);
                                 },
@@ -23070,13 +23070,10 @@ class MainView extends _reactDefault.default.Component {
                                 path: "/",
                                 render: ()=>{
                                     //rendering LoginView if there's no user, if yes, passing user details as prop to LoginView
-                                    if (!user) return(/*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
-                                        children: [
-                                            /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
-                                                onLoggedIn: (user1)=>this.onLoggedIn(user1)
-                                            }),
-                                            ";"
-                                        ]
+                                    if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                                            onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                                        })
                                     }));
                                     //before the movies loaded
                                     if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
@@ -25193,7 +25190,7 @@ function LoginView(props) {
                         ]
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                        variant: "custom",
+                        className: "button",
                         type: "submit",
                         onClick: handleSubmit,
                         __source: {
@@ -27328,7 +27325,7 @@ class MovieView extends _reactDefault.default.Component {
                     })
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                    className: "back-button",
+                    className: "button back-button",
                     onClick: ()=>{
                         onBackClick(null);
                     },
